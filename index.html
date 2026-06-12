@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinguaKids Play – Spielerisch Sprachen lernen</title>
+<meta name="description" content="LinguaKids Play – die Lern-App, mit der kleine Kinder spielerisch Sprachen entdecken. Jetzt im App Store laden.">
+<!-- ✏️ ANPASSEN: Titel & Beschreibung oben gern auf deine App abstimmen -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFF7EC;
+    --ink:#312B66;
+    --coral:#FF6F61;
+    --sunshine:#FFC548;
+    --mint:#58C5A8;
+    --sky:#7FB9FF;
+    --card:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 24px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:56px 0 64px;
+    text-align:center;
+  }
+  .tile{
+    position:absolute;
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:18px;
+    box-shadow:0 6px 0 rgba(49,43,102,.12);
+    animation:floaty 5s ease-in-out infinite;
+    user-select:none;pointer-events:none;
+  }
+  .tile.a{width:54px;height:54px;background:var(--sunshine);color:var(--ink);top:18px;left:6%;font-size:26px;animation-delay:0s;transform:rotate(-8deg)}
+  .tile.b{width:46px;height:46px;background:var(--mint);color:#fff;top:90px;right:8%;font-size:22px;animation-delay:1.2s;transform:rotate(10deg)}
+  .tile.c{width:40px;height:40px;background:var(--sky);color:#fff;top:200px;left:10%;font-size:19px;animation-delay:2.4s;transform:rotate(6deg)}
+  .tile.d{width:44px;height:44px;background:var(--coral);color:#fff;top:230px;right:12%;font-size:20px;animation-delay:.6s;transform:rotate(-12deg)}
+  @keyframes floaty{
+    0%,100%{translate:0 0}
+    50%{translate:0 -12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .tile{animation:none}
+  }
+
+  .wordmark{
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;
+    font-size:18px;
+    letter-spacing:.04em;
+    color:var(--coral);
+    margin-bottom:20px;
+  }
+  h1{
+    font-family:'Fredoka',sans-serif;
+    font-weight:700;
+    font-size:clamp(34px,8vw,52px);
+    line-height:1.12;
+    margin-bottom:14px;
+  }
+  h1 .hl{color:var(--coral)}
+  .sub{
+    font-size:18px;
+    max-width:440px;
+    margin:0 auto 30px;
+    color:#5A548F;
+  }
+
+  /* ---------- APP STORE BUTTON ---------- */
+  .store-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    background:#000;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:14px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 8px 22px rgba(49,43,102,.22);
+  }
+  .store-btn:hover,.store-btn:focus-visible{transform:translateY(-2px);box-shadow:0 12px 26px rgba(49,43,102,.3)}
+  .store-btn:focus-visible{outline:3px solid var(--sunshine);outline-offset:3px}
+  .store-btn svg{width:30px;height:30px;flex-shrink:0}
+  .store-btn .txt{text-align:left;line-height:1.2}
+  .store-btn .txt small{display:block;font-size:11px;font-weight:400;opacity:.85}
+  .store-btn .txt strong{font-size:19px;font-weight:700;font-family:'Nunito',sans-serif}
+
+  .chips{
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+    margin-top:22px;
+  }
+  .chip{
+    background:var(--card);
+    border:2px solid rgba(49,43,102,.1);
+    border-radius:999px;
+    padding:6px 14px;
+    font-size:13px;font-weight:700;
+  }
+
+  /* ---------- BENEFITS ---------- */
+  .benefits{padding:8px 0 40px}
+  .benefit{
+    background:var(--card);
+    border-radius:22px;
+    padding:22px 22px 22px 20px;
+    display:flex;gap:16px;align-items:flex-start;
+    box-shadow:0 4px 14px rgba(49,43,102,.07);
+    margin-bottom:14px;
+  }
+  .benefit .icon{
+    width:48px;height:48px;flex-shrink:0;
+    border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;
+  }
+  .benefit:nth-child(1) .icon{background:#FFF1D6}
+  .benefit:nth-child(2) .icon{background:#DDF4EC}
+  .benefit:nth-child(3) .icon{background:#E5EFFF}
+  .benefit h2{
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;font-size:18px;margin-bottom:4px;
+  }
+  .benefit p{font-size:15px;color:#5A548F}
+
+  /* ---------- BOTTOM CTA ---------- */
+  .cta2{
+    text-align:center;
+    background:var(--ink);
+    border-radius:28px;
+    padding:40px 24px;
+    margin-bottom:48px;
+    color:#fff;
+  }
+  .cta2 h2{
+    font-family:'Fredoka',sans-serif;
+    font-weight:600;font-size:24px;margin-bottom:8px;
+  }
+  .cta2 p{font-size:15px;opacity:.8;margin-bottom:22px}
+  .cta2 .store-btn{background:#fff;color:var(--ink)}
+  .cta2 .store-btn svg path{fill:var(--ink)}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:0 0 40px;
+    font-size:13px;
+    color:#7B76A8;
+  }
+  footer details{margin-bottom:10px}
+  footer summary{cursor:pointer;font-weight:700;padding:6px 0}
+  footer .legal{padding:8px 0 4px;white-space:pre-line}
+  footer .copy{margin-top:18px;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="tile a" aria-hidden="true">A</span>
+  <span class="tile b" aria-hidden="true">B</span>
+  <span class="tile c" aria-hidden="true">C</span>
+  <span class="tile d" aria-hidden="true">★</span>
+
+  <div class="wrap">
+    <p class="wordmark">LinguaKids Play</p>
+    <h1>Spielerisch <span class="hl">Sprachen lernen</span> – für die Kleinsten</h1>
+    <!-- ✏️ ANPASSEN: Beschreibe hier in einem Satz, was deine App besonders macht -->
+    <p class="sub">Die liebevoll gestaltete Lern-App, mit der Kinder durch Spiele, Bilder und Töne erste Wörter entdecken.</p>
+
+    <a class="store-btn" href="https://apps.apple.com/de/app/id6762310663" rel="noopener">
+      <svg viewBox="0 0 384 512" aria-hidden="true"><path fill="#fff" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      <span class="txt"><small>Laden im</small><strong>App Store</strong></span>
+    </a>
+
+    <!-- ✏️ ANPASSEN: Nur Aussagen behalten, die auf deine App wirklich zutreffen! -->
+    <div class="chips">
+      <span class="chip">🧸 Für Kinder von 2–4</span>
+      <span class="chip">💛 Einmal kaufen, kein Abo</span>
+      <span class="chip">🔒 Keine Werbung in der App</span>
+    </div>
+  </div>
+</header>
+
+<main class="benefits wrap">
+  <!-- ✏️ ANPASSEN: Die drei Vorteile auf deine App-Features abstimmen -->
+  <div class="benefit">
+    <div class="icon">🎈</div>
+    <div>
+      <h2>Lernen, das sich wie Spielen anfühlt</h2>
+      <p>Bunte Mini-Spiele, fröhliche Animationen und Belohnungen halten kleine Entdecker bei der Sache.</p>
+    </div>
+  </div>
+  <div class="benefit">
+    <div class="icon">🗣️</div>
+    <div>
+      <h2>Erste Wörter hören und nachsprechen</h2>
+      <p>Klare Aussprache zum Antippen – so prägen sich neue Wörter ganz nebenbei ein.</p>
+    </div>
+  </div>
+  <div class="benefit">
+    <div class="icon">👨‍👩‍👧</div>
+    <div>
+      <h2>Bildschirmzeit mit gutem Gefühl</h2>
+      <p>Kindgerecht gestaltet, ohne Ablenkung – gemacht für kleine Hände und neugierige Köpfe.</p>
+    </div>
+  </div>
+</main>
+
+<section class="wrap">
+  <div class="cta2">
+    <h2>Bereit zum Entdecken?</h2>
+    <p>Jetzt herunterladen und gemeinsam loslegen.</p>
+    <a class="store-btn" href="https://apps.apple.com/de/app/id6762310663" rel="noopener">
+      <svg viewBox="0 0 384 512" aria-hidden="true"><path fill="#312B66" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      <span class="txt"><small>Laden im</small><strong>App Store</strong></span>
+    </a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <details>
+    <summary>Impressum</summary>
+    <!-- ✏️ PFLICHT in Deutschland: Trage hier deinen vollen Namen, deine Anschrift und E-Mail ein -->
+    <div class="legal">Angaben gemäß § 5 DDG
+Vorname Nachname
+Straße Hausnummer
+PLZ Ort
+E-Mail: deine@email.de</div>
+  </details>
+  <details>
+    <summary>Datenschutzerklärung</summary>
+    <!-- ✏️ PFLICHT: Datenschutzerklärung einfügen. Kostenlose Generatoren: z.B. e-recht24.de oder datenschutz-generator.de -->
+    <div class="legal">Hier deine Datenschutzerklärung einfügen.
+Diese Seite verwendet keine Cookies und kein Tracking.
+(Hinweis: Google Fonts wird aktuell von Google-Servern geladen – erwähne das in der Datenschutzerklärung oder binde die Schriften lokal ein.)</div>
+  </details>
+  <p class="copy">© 2026 LinguaKids Play</p>
+</footer>
+
+</body>
+</html>
